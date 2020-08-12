@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     # sets session[:name] if :name was given
     def create
         if params[:name].nil? || params[:name].empty?
-            redirect_to '/login'
+            redirect_to login_path # or '/login'
         else
             session[:name] = params[:name]
         end
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     def destroy
         session.destroy
         # reset_session can also be used
-        redirect_to '/login'
+        # redirect_to 'login_path'
     end
 
 end
